@@ -1,0 +1,37 @@
+{
+  "author": {
+    "identityId": "100",
+    "target": "http://app.systoon.com",
+    "title": "100",
+    "avatar": "http://static.systoon.com/icon/mwap/share/toon_100.png"
+  },
+  "fileId": "1",
+  "showType": 2,
+  "createTime": 1525865000,
+  "title": "标题1",
+  "mediaList": [{
+    "index": 0,
+    "type": 0,
+    "text": "中方已收到美国财政部长姆努钦先生的来信，正式邀请习近平主席特使、中共中央政治局委员、国务院副总理、中美全面经济对话牵头人刘鹤访美，就双边经贸问题继续磋商。中方已接受邀请，同意在适当时候赴美磋商，双方工作团队正在保持密切沟通。"
+  }, {
+    "index": 1,
+    "type": "1",
+    "url": "http://inews.gtimg.com/newsapp_match/0/3524304704/0",
+    "thumb": "http://inews.gtimg.com/newsapp_match/0/3524304704/0",
+    "height": 400,
+    "width": 600
+  },
+    {
+      "index": 2,
+      "type": "1",
+      "url": "http://inews.gtimg.com/newsapp_match/0/3524304704/0",
+      "thumb": "http://inews.gtimg.com/newsapp_match/0/3524304704/0",
+      "height": 400,
+      "width": 600
+    }],
+  "location": {
+    "address": "思源大厦",
+    "latitude": "39.995039524582381",
+    "longitude": "116.45158869622631"
+  }
+}

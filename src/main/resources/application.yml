@@ -1,0 +1,133 @@
+#默认使用配置
+spring:
+  profiles:
+    active: dev
+
+#公共配置与profiles选择无关
+mybatis:
+  typeAliasesPackage: com.cui.entity
+  mapperLocations: classpath:mapper/*.xml
+  config-location: classpath:mybatis-config.xml
+  mapperScanPackage: com.cui.dao
+
+---
+
+#开发配置
+#spring:
+#  profiles: dev
+#
+#  datasource:
+#    url: jdbc:mysql://127.0.0.1:3306/cui
+#    username: root
+#    password: 123456
+#    driver-class-name: com.mysql.jdbc.Driver
+#    # 使用druid数据源
+#    type: com.alibaba.druid.pool.DruidDataSource
+
+
+
+mysql:
+    datasource:
+        readSize: 2  #读库个数
+        type: com.alibaba.druid.pool.DruidDataSource
+        mapperLocations: classpath:mapper/*.xml
+        configLocation: classpath:/mybatis-config.xml
+        write:
+           url: mapperScanPackage:jdbc:mysql://127.0.0.1:3306/cui?useUnicode=true&amp;characterEncoding=utf-8
+           username: root
+           password: 123456
+           driver-class-name: com.mysql.jdbc.Driver
+           minIdle: 5
+           maxActive: 100
+           initialSize: 10
+           maxWait: 60000
+           timeBetweenEvictionRunsMillis: 60000
+           minEvictableIdleTimeMillis: 300000
+           validationQuery: select 'x'
+           testWhileIdle: true
+           testOnBorrow: false
+           testOnReturn: false
+           poolPreparedStatements: true
+           maxPoolPreparedStatementPerConnectionSize: 50
+           removeAbandoned: true
+           filters: stat
+        read01:
+           url: jdbc:mysql://127.0.0.1:3306/cui?useUnicode=true&amp;characterEncoding=utf-8
+           username: root
+           password: 123456
+           driver-class-name: com.mysql.jdbc.Driver
+           minIdle: 5
+           maxActive: 100
+           initialSize: 10
+           maxWait: 60000
+           timeBetweenEvictionRunsMillis: 60000
+           minEvictableIdleTimeMillis: 300000
+           validationQuery: select 'x'
+           testWhileIdle: true
+           testOnBorrow: false
+           testOnReturn: false
+           poolPreparedStatements: true
+           maxPoolPreparedStatementPerConnectionSize: 50
+           removeAbandoned: true
+           filters: stat
+        read02:
+           url: jdbc:mysql://127.0.0.1:3306/cui?useUnicode=true&amp;characterEncoding=utf-8
+           username: root
+           password: 123456
+           driver-class-name: com.mysql.jdbc.Driver
+           minIdle: 5
+           maxActive: 100
+           initialSize: 10
+           maxWait: 60000
+           timeBetweenEvictionRunsMillis: 60000
+           minEvictableIdleTimeMillis: 300000
+           validationQuery: select 'x'
+           testWhileIdle: true
+           testOnBorrow: false
+           testOnReturn: false
+           poolPreparedStatements: true
+           maxPoolPreparedStatementPerConnectionSize: 50
+           removeAbandoned: true
+           filters: stat
+
+### Redis服务器地址
+#spring.redis.host=127.0.0.1
+## Redis服务器连接端口
+#spring.redis.port=6379
+## Redis服务器连接密码（默认为空）
+#spring.redis.password=
+## 连接池最大连接数（使用负值表示没有限制）
+#spring.redis.pool.max-active=8
+## 连接池最大阻塞等待时间（使用负值表示没有限制）
+#spring.redis.pool.max-wait=-1
+## 连接池中的最大空闲连接
+#spring.redis.pool.max-idle=8
+## 连接池中的最小空闲连接
+#spring.redis.pool.min-idle=0
+## 连接超时时间（毫秒）
+#spring.redis.timeout=0
+#spring.redis.commandTimeout=5000
+#spring.redis.sentinel.master=mymaster
+## redis.cluster
+#spring.redis.cluster.nodes=127.0.0.1:26379,127.0.0.1:26378,127.0.0.1:26377
+spring:
+#  rabbitmq:
+#    addresses: 172.28.19.123:5672,172.28.19.124:5672,172.28.19.125:5672
+  redis:
+    sentinel:
+      master: bogon
+      #外网ip不能访问
+      #./SoftWare/redisserver/redis-4.0.1/src/redis-cli -h 127.0.0.1 -p 26379 sentinel get-master-addr-by-name bogon
+      nodes: www.rediscui.com:26379,www.rediscui.com:26378,www.rediscui.com:26377
+    host: 127.0.0.1
+    port: 6379
+    jedis:
+      pool:
+        max-idle: 8
+        max-active: 8
+        max-wait: -1
+        min-idle: 0
+    timeout: 8989
+    password:
+
+
